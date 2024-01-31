@@ -1,5 +1,7 @@
 let numeroSecreto = 0;
 let intentos = 0;
+let listaNumerosSorteados = [];
+
 
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
@@ -27,16 +29,22 @@ function verificarIntento() {
 }
 
 function limpiarInputBox() {
-    /*
-    let valorInputBox = document.querySelector('#valorUsuario');
-    valorInputBox.value = '';
-    */
     document.querySelector('#valorUsuario').value = '';
     return;
 }
 
 function generarNumeroSecreto() {
-    return Math.floor(Math.random() * 10) + 1;
+    let numeroGenerado = Math.floor(Math.random() * 10) + 1;
+    console.log('Número generado: ', numeroGenerado);
+    console.log('Lista de números sorteados: ', listaNumerosSorteados);
+    //Si el número generado esta incluido en la lista de números sorteados, se vuelve a generar.
+    if (listaNumerosSorteados.includes(numeroGenerado)) {
+        //Recursividad
+        return generarNumeroSecreto();
+    } else {
+        listaNumerosSorteados.push(numeroGenerado);
+        return numeroGenerado;
+    }
 }
 
 function condicionesIniciales() {
