@@ -1,4 +1,4 @@
-let numeroScreto = generarNumeroSecreto();
+let numeroSecreto = generarNumeroSecreto();
 
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
@@ -9,10 +9,10 @@ function asignarTextoElemento(elemento, texto) {
 function verificarIntento() {
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
     console.log(typeof(numeroDeUsuario));
-    console.log(typeof(numeroScreto));
-    console.log(numeroScreto);
+    console.log(typeof(numeroSecreto));
+    console.log(numeroSecreto);
     console.log(numeroDeUsuario);
-    console.log(numeroDeUsuario == numeroScreto);
+    console.log(numeroDeUsuario === numeroSecreto);
     return;
 }
 
