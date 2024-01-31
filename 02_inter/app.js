@@ -12,14 +12,26 @@ function verificarIntento() {
 
     if (numeroDeUsuario === numeroSecreto) {
         asignarTextoElemento('p', `¡Felicidades! Adivinaste el número en ${intentos} ${(intentos === 1) ? 'vez' : 'veces'} `);
+        document.getElementById('reiniciar').removeAttribute('disabled');
     } else {
+        //El usuario no acertó, se le da una pista.
         if (numeroDeUsuario > numeroSecreto) {
             asignarTextoElemento('p', 'El número secreto es menor');
         } else {
             asignarTextoElemento('p', 'El número secreto es mayor');
         }
         intentos++;
+        limpiarInputBox();
     }
+    return;
+}
+
+function limpiarInputBox() {
+    /*
+    let valorInputBox = document.querySelector('#valorUsuario');
+    valorInputBox.value = '';
+    */
+    document.querySelector('#valorUsuario').value = '';
     return;
 }
 
